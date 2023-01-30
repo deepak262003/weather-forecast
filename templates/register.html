@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name='viewport' content='width=device-width'>
+        <link rel="stylesheet" href="../static/style3.css">
+    </head>
+    <body>
+        <div class = "container" id="container" >  
+            <div style = " background-image : url({{url_for('static', filename = 'night.jpg')}});width:400px;height:220px ; margin:auto;padding : 2px ;
+           text-align:center;padding:20px;border-radius:19px;background-size:50rem;" id="parent">
+            <div id = "form">
+            <form action = "/saveUser" method="POST">
+                <input type="text" name="user_name" placeholder="Enter Email address" id="address"> <br><br>
+                <input type="password" name="password" placeholder="Enter password" id="password"><br><br>
+                <input type="submit" value="Register"><br><br>
+                <button id = "reg"><a id ="anc" href="{{url_for('loginUser')}}">Login page</a></button>
+            </form> 
+            </div>
+            <div id="message" style="margin-top: 40px;color:red"></div>
+        </div>
+        </div>
+    </body>
+    <script>
+        if({{status}}==1){
+            alert("account added successfully");
+        }
+        if({{status}}==2){
+            input = document.getElementById("address")
+            alert("Invalid email address");
+            document.getElementsByTagName("input")[0].style.border="2px solid red";
+            input.placeholder="enter valid email addess";
+            input.style.color="green"
+        }
+        if({{status}}==3){
+            div = document.getElementById("message")
+            document.getElementsByTagName("input")[0].style.border="2px solid red";
+            alert = document.createElement("h3"); 
+            alert.innerHTML = "user already exists"
+            div.appendChild(alert);
+        }
+        if({{status}}==4){
+            input = document.getElementById("password")
+            alert("please enter password");
+            document.getElementsByTagName("input")[1].style.border="2px solid red";
+            input.placeholder="please enter password";
+            input.style.color="green"
+        }
+       
+    </script>
+</html>

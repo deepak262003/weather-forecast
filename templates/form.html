@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>weather</title>
+</head>
+
+<body>
+  <h1 id = "h"> weather forecast </h1>
+  <div class ="div_weatherInput"> 
+  <form action="/weather" method="post" autocomplete="off"> 
+   <input type = "text" list="cityList" placeholder="Enter the city" id="cityInput" name="city">
+   <input type = "submit" id = "submit" value="get weather">
+   <datalist id="cityList" >
+    <option value="coimbatore">
+   </datalist>  </form>
+  </div>  
+<script>
+  he = document.getElementById("h");
+  inp = document.getElementById("cityInput");
+  input = document.getElementById("cityList");
+  inp.addEventListener("focus",autocomplete);
+
+  function autocomplete(){
+    var xhr = new XMLHttpRequest();
+    
+    xhr.open("GET", "https://api.npoint.io/88da607373d247d35bb4",true);
+    xhr.onload=function(){
+      var output="";
+      var cities = JSON.parse(this.responseText);
+      he.innerHTML=cities;
+      for(let i in cities){
+        list = document.createElement("option");
+       // list.value=cities[i].name;
+        //input.appendChild(list);
+        console.log(cities[i].country);
+      }
+    }
+    xhr.send();
+  }
+</script>   
+</body>
+
+</html>

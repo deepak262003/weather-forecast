@@ -1,0 +1,37 @@
+
+
+ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background-color: rgba(56, 96, 157);
+}
+li{
+    float:left;
+    margin-left: 10px;
+    padding-right: 2px;
+}
+li:first-child{
+    margin-left: 0;
+}
+li a{
+    display:block;
+    color:white;
+    text-align: center;
+    padding: 10px 5px;
+    text-decoration:none;
+}
+li a:hover:not(active){
+    background-color: rgb(29, 51, 83);
+    color:white;
+}
+.active{
+    background-color: black;
+}
+.nav{
+    width:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+}

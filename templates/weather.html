@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style1.css">
+    <title>weather </title>
+</head>
+<body id="body" >
+    <div class="nav">
+        <ul>
+            <li><a href="{{url_for('getCity')}}">Weather home</a></li>
+            <li><a href="{{url_for('getHourlyForecast',city=weather_location)}}">Hourly forcast</a></li>
+            <li style="float:right"><a href="{{url_for('logoutUser')}}" >Logout</a></li>
+            <li style="float:right"><a>{{user}}</a></li>
+        </ul>
+    </div>
+    <div style="height:100px"></div>
+    <div id="anim">
+     <div style = " background-image : url({{url_for('static', filename = DNimg)}});width:600px ; margin:auto;padding : 2px ;
+     justify-content:center;border-radius:19px;background-size:50rem;" id="parent">
+     <div id="content">
+     <div id="title">
+     <h2 >WEATHER FORCAST</h2> 
+     </div>
+     </div>
+     <br>
+     <div id="data" >
+     <h3>City : {{weather_location}}</h3>
+     <h3>State : {{weather_state}}</h3>
+     <div id="temp">
+     <h3>{{weather_temperature}}&#x00B0 C</h3> 
+     </div>
+     </div>
+     <div id="image">
+     <div id = "image_content">
+     <img src= {{weather_image}} >
+     <div id="con">{{weather_condition}}</div>
+     </div>
+     </div>
+     </div>
+     <div id="formContent">
+     <div id="date">
+        <h1>{{weather_date}}</h1>
+     </div>
+     <div id = "form">
+     <form action="/weather" method="post" autocomplete="off">
+        <input list="cityList" type = "text " placeholder="Enter city" name="city" id="cityInput">
+        <br>
+        <datalist id="cityList">
+        </datalist>
+        <button type = "submit">Find Weather</button>
+    </form>
+     </div>
+    </div>
+    </div>
+    <script>
+         inp = document.getElementById("cityInput");
+         input = document.getElementById("cityList");
+         autocomplete();
+         if({{w_isCityFound}}==1){
+         document.getElementById("data").style.display="none";
+         //document.getElementById("forecast").style.display="none";
+         const content = document.createElement("h1");
+         content.setAttribute("id","content1");
+         content.innerHTML="Oops.. city not found ";
+         document.getElementById("body").appendChild(content);
+         alert("city not found");
+         }
+        if({{w_isCityFound}}==2){
+         document.getElementById("data").style.display="none";
+         //document.getElementById("forecast").style.display="none";
+         }
+         function autocomplete(){
+            var xhr = new XMLHttpRequest();
+            
+            xhr.open("GET", "https://api.npoint.io/88da607373d247d35bb4",true);
+            xhr.onload=function(){
+            var cities = JSON.parse(this.responseText);
+            for(let i in cities){
+                list = document.createElement("option");
+                list.value=cities[i].name;
+                list.label= cities[i].subcountry + ' - ' + cities[i].country;
+                input.appendChild(list);
+                console.log(cities[i].name);
+            }
+            }
+            xhr.send();
+            }
+        
+    </script>
+</body>
+</html>

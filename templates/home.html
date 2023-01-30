@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>login page</title>
+        <meta name="description" content="">
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="../static/style3.css">
+    </head>
+    <body>
+        <div class = "container" id="container" >  
+            <div style = " background-image : url({{url_for('static', filename = 'night.jpg')}});width:400px;height:220px ; margin:auto;padding : 2px ;
+           text-align:center;padding:20px;border-radius:19px;background-size:50rem;" id="parent">
+            <div id = "form">
+            <form action = "/login" method="POST">
+                <input type="text" name="user_name" placeholder="Enter mail ID" required> <br><br>
+                <input type="password" name="password" placeholder="Enter password" required><br><br>
+                <input type="submit" value="Login"><br><br>
+                <button id = "reg"><a id ="anc" href="{{url_for('register',status=0)}}">Sign up</a></button>
+            </form> 
+            </div>
+            <div id="message" style="margin-top: 40px;color:red"></div>
+        </div>
+        </div>
+        <script>
+            if({{isRegistered}}==1){
+                alert("account added successfully");
+            }
+            if({{isRegistered}}==2){
+                alert("account already exists... kindly login");
+                document.getElementsByTagName("input")[0].style.border="2px solid red";
+                document.getElementsByTagName("input")[1].style.border="2px solid red";
+            }
+            if({{isRegistered}}==3){
+                alert("logged out successfully");
+            }
+            if({{isRegistered}}==4){
+                div = document.getElementById("message")
+                document.getElementsByTagName("input")[0].style.border="2px solid red";
+                alert = document.createElement("h3"); 
+                alert.innerHTML = "invalid mail id .. login failed"
+                div.appendChild(alert);
+            }
+            if({{isRegistered}}==5){
+                div = document.getElementById("message")
+                document.getElementsByTagName("input")[1].style.border="2px solid red";
+                alert = document.createElement("h3"); 
+                alert.innerHTML = "kindly enter password.."
+                div.appendChild(alert);
+            }
+            if({{isRegistered}}==6){
+                div = document.getElementById("message")
+                document.getElementsByTagName("input")[1].style.border="2px solid red";
+                alert = document.createElement("h3"); 
+                alert.innerHTML = "invalid password.."
+                div.appendChild(alert);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+#title{
+    background-color:rgba(9, 9, 11, 0.5);
+    color:white;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    margin: auto;
+    font-family: 'alegreya';
+    padding:1px
+}
+#content{
+    
+    padding:10px;
+}
+#data{
+    background-color:rgba(9, 9, 11, 0.5);
+    color:wheat;
+    font-size: 20px;
+    width:400px;
+    text-align: center;
+    height: fit-content;
+    margin:auto;
+    padding:20px;
+    padding-top: 10px;
+    padding-bottom : 10px;
+    border:2px solid rgb(28, 28, 34);
+    border-radius: 8px;
+}
+#image{
+    width:90%;
+    margin: auto;
+    color:aliceblue;
+    padding:10px;
+    text-align:center
+}
+#con{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: bold;
+    font-size: 35px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+body{
+    background-image: linear-gradient(to right,rgb(0,134,217),rgb(94,168,239),rgb(179,209,230),rgb(94,168,239), rgb(0,134,217));
+    overflow: scroll;
+}
+#temp{
+    font-size:25p
+    margin-left:20%;
+    margin-right:20%;
+}
+#date{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color:rgb(26, 26, 78);
+    text-shadow: 2px 1px rgb(39, 139, 234);
+    text-align:center;
+}
+#image_content{
+    text-size:5px;
+    text-shadow: 2px 2px rgb(11, 68, 11);
+    text-align: center;
+}
+#form{
+    text-align: center;
+}
+#content1{
+    color:rgb(26, 26, 78);
+    text-align: center;
+    text-shadow: 2px 1px rgb(39, 139, 234);
+}
+input{
+    margin-top: 8px;
+    height: 1.8rem;
+    width: 270px;
+    border-radius: 1rem;
+    border: 2px solid #fff;
+    outline: none;
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+button{
+    background-color: #0f0f0f;
+    height: 3.2rem;
+    width: 180px;
+    color: aliceblue;
+    font-size: 15px;
+    outline: none;
+    border-radius: 20px;
+    font-weight: 400;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(77, 138, 190);
+    color: black;
+    transition: ease-in-out 0.3s;
+}
+img{
+    margin:auto;
+    text-align: center;
+}
+
+#formContent{
+    margin:auto;
+    width:600px;
+    text-align: center;
+}
+#anim{
+    padding: auto;
+}

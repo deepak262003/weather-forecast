@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hourly Forecast</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href="/static/style1.css">
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin : auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+body{
+    background-image: linear-gradient(to right,rgb(0,134,217),rgb(94,168,239),rgb(179,209,230),rgb(94,168,239), rgb(0,134,217));
+}
+h1{
+   text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a onclick="history.back()">back</a></li>
+            <li><a href="#">Hourly forcast</a></li>
+            <li style="float:right"><a href="{{url_for('logoutUser')}}" >Logout</a></li>
+        </ul>
+    </div>
+        <br>
+    <h1><b>HOURLY FORECAST</b></h1>
+    <table>
+        <tr>
+            <td><b>Date and time</b></td>
+            <td><b>temperature</b></td>
+            <td><b>humidity</b></td>
+            <td><b>wind direction</b></td>
+            <td><b>rain possiblity</b></td>
+            <td><b> uv index</b></td>
+        </tr>     
+    {% for output in data[0]['hour']: %}
+            <tr>
+                <td>{{output['time']}}</td>
+                <td>{{output['temp_c']}}&#x00B0 C</td>
+                <td>{{output['humidity']}}</td>
+                <td>{{output['wind_dir']}}</td>
+                <td>{{output['chance_of_rain']}}</td>
+                <td>{{output['uv']}}</td>
+            </tr>              
+    {% endfor %}
+</table>
+</body>
+</html>
