@@ -1,12 +1,6 @@
 import json
 from flask import Flask, redirect, render_template, request, session, url_for
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.exc import IntegrityError
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
-from dotenv import load_dotenv
 import requests
-import os
 import pyrebase
 
 config = {
@@ -26,12 +20,6 @@ db = firebase.database()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '123456'
-
-
-load_dotenv()
-global api_key
-api_key = os.environ.get('API_KEY1')
-print(api_key)
 
 
 @app.route('/')
@@ -119,7 +107,7 @@ def weather():
     details = {
         "q": city,
         "aqi": "yes",
-        "key": api_key
+        "key": "9c60bc6acc494c0dba4113227220912"
     }
 
     global response
@@ -154,7 +142,7 @@ def getHourlyForecast(city):
         "q": city,
         "aqi": "yes",
         "days": 2,
-        "key": api_key
+        "key": "9c60bc6acc494c0dba4113227220912"
     }
     f_response = requests.post(
         url="https://api.weatherapi.com/v1/forecast.json", data=f_details)

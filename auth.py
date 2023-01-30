@@ -1,14 +1,14 @@
 import pyrebase
 
 config = {
-    "apiKey": "AIzaSyDE40KdAA7IBVFWZtpoChNn8TnU2ZyIDnQ",
-    "authDomain": "weather-app-370205.firebaseapp.com",
-    "projectId": "weather-app-370205",
-    "storageBucket": "weather-app-370205.appspot.com",
-    "messagingSenderId": "32945948648",
-    "appId": "1:32945948648:web:a164456149daa1fc2c465d",
-    "measurementId": "G-FH4TRV05PG",
-    "databaseURL":""
+    "apiKey": "AIzaSyD18AV__wRT5sI5_s6mYXabt6eQ7pZtQuc",
+    "authDomain": "citywet-b7750.firebaseapp.com",
+    "projectId": "citywet-b7750",
+    "storageBucket": "citywet-b7750.appspot.com",
+    "messagingSenderId": "1016369633018",
+    "appId": "1:1016369633018:web:7f1e0b0b75554ad3321b43",
+    "measurementId": "G-D1M8PWRT4D",
+    "databaseURL": " "
 }
 
 firebase = pyrebase.initialize_app(config)
@@ -17,10 +17,10 @@ auth = firebase.auth()
 email = "test@example.com"
 password = "123456"
 
-#user = auth.create_user_with_email_and_password(email, password)
-#print(user)
+user = auth.create_user_with_email_and_password(email, password)
+print(user)
 
-user = auth.sign_in_with_email_and_password(email, password)
+#user = auth.sign_in_with_email_and_password(email, password)
 
 
 #info = auth.get_account_info(user["idToken"])
